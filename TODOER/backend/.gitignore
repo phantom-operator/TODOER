@@ -1,0 +1,20 @@
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+.tox/
+.venv
+venv/
+
+# Editors and IDEs
+.vscode/
+.idea/
+
+# Specific to FastAPI/Uvicorn (if any logs/temp files)
+

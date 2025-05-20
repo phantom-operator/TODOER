@@ -1,0 +1,32 @@
+# This workflow will build and push Docker images for the backend and frontend
+# on every push to the main branch.
+
+name: CI Docker Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Backend Docker image
+      run: docker build ./backend -t todoer-backend:latest
+
+    - name: Build Frontend Docker image
+      run: docker build ./frontend -t todoer-frontend:latest
+
+    # Add steps here to push to a container registry if needed
+    # For example, using docker/login-action and docker/build-push-action
+
+    - name: Verify images (Optional)
+      run: |
+        docker images
+        docker run --rm todoer-backend:latest --help || true
+        # docker run --rm todoer-frontend:latest
